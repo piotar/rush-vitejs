@@ -1,0 +1,22 @@
+{
+  "name": "@localxx/app",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "@localxx/a": "workspace:^0.0.1",
+    "@localxx/b": "workspace:^0.0.1",
+    "@localxx/utils": "workspace:^0.0.1"
+  },
+  "dependencies": {
+    "redux-dynamic-middlewares": "~2.0.0",
+    "redux": "~4.1.2",
+    "react-redux": "~7.2.6"
+  }
+}

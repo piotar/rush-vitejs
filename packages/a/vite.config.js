@@ -1,7 +1,12 @@
 const path = require('path')
 const { defineConfig } = require('vite')
+import commonjs from '@rollup/plugin-commonjs';
 
 module.exports = defineConfig({
+    plugins: [commonjs({
+        esmExternals: true,
+
+    })],
     build: {
         lib: {
             entry: path.resolve(__dirname, 'src/main.ts'),
@@ -9,8 +14,9 @@ module.exports = defineConfig({
             fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
-            external: ['@localxx/utils',
-            //  'redux'
+            external: [
+                '@localxx/utils',
+                'redux'
             ],
             output: {
                 // Provide global variables to use in the UMD build
@@ -23,6 +29,6 @@ module.exports = defineConfig({
         }
     },
     resolve: {
-        dedupe: ['@localxx/utils'],
+        dedupe: ['@localxx/utils', 'redux'],
     },
 })

@@ -1,7 +1,12 @@
 const path = require('path')
 const { defineConfig } = require('vite')
+import commonjs from '@rollup/plugin-commonjs';
 
 module.exports = defineConfig({
+    // plugins: [ commonjs({
+    //     esmExternals: true,
+
+    // })],
     build: {
         // lib: {
         //     entry: path.resolve(__dirname, 'src/main.ts'),
@@ -21,6 +26,6 @@ module.exports = defineConfig({
         }
     },
     resolve: {
-        dedupe: ['@localxx/a'],
+        dedupe: ['@localxx/a', 'redux'],
     },
 })

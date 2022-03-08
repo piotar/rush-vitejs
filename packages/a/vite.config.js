@@ -3,15 +3,18 @@ const { defineConfig } = require('vite')
 import commonjs from '@rollup/plugin-commonjs';
 
 module.exports = defineConfig({
-    plugins: [commonjs({
-        esmExternals: true,
+    // plugins: [commonjs({
+    //     esmExternals: true,
 
-    })],
+    // })],
     build: {
         lib: {
             entry: path.resolve(__dirname, 'src/main.ts'),
             name: 'A',
             fileName: (format) => `index.${format}.js`
+        },
+        commonjsOptions: {
+            esmExternals: true
         },
         rollupOptions: {
             external: [
